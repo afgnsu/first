@@ -1,0 +1,17 @@
+<h1>新增用戶</h1>
+
+<%= form_for(@user) do |f| %>
+	<%= render "shared/form_errors", record: @user %>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4">
+  <table class="table table-hover">
+    <tr><td><%= f.label :name, "姓名：" %></td><td><%= f.text_field :name %></td></tr>
+    <tr><td><%= f.label :email, "電子郵件：" %></td><td><%= f.text_field :email %></td></tr>
+    <tr><td><%= f.label :password, "密碼：" %></td><td><%= f.password_field :password %></td></tr>
+    <tr><td><%= f.label :password_confirmation, "確認密碼：" %></td><td><%= f.password_field :password_confirmation %></td></tr>
+    <tr><td colspan=2 align=center><%= f.submit "送出", class: "btn btn-primary" %></td></tr>
+  </table>
+  </div>
+  </div>
+<% end %>

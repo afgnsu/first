@@ -1,0 +1,14 @@
+<h1>新增文章</h1>
+
+<%= form_for @post do |f| %>
+   <%= render "shared/form_errors", record: @post %>
+
+  <div class="field">
+    <%= f.label :content, "文章內容：" %><br>
+    <%= f.text_field :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "送出", class: "btn btn-primary" %>
+  </div>
+<% end %>

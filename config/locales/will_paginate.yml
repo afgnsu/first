@@ -1,0 +1,5 @@
+zh-TW:
+  will_paginate:
+    page_gap: "&hellip;"
+    previous_label: "上一頁"
+    next_label: "下一頁"

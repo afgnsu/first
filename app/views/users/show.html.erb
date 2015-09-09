@@ -1,0 +1,15 @@
+<h1>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</h1>
+
+<div class="row">
+    <h1>文章列表</h1>
+    <ul>
+      <%= render partial: "shared/post", collection: @posts %>
+    </ul>
+      <%= paginate @posts %>
+</div>
+
+<hr>
+<%= link_to '返回', users_path, :class => "btn btn-primary" %>

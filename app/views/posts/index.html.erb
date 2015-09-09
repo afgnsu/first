@@ -1,0 +1,35 @@
+<div class="row">
+  <aside class="col-md-12">
+    <section>
+      <%= render "shared/form_errors", record: @post %>
+      <%= link_to gravatar_for(current_user) %>
+      <%= link_to current_user.name, current_user %><br />
+      <%= pluralize(current_user.posts.count, "post") %><br />
+    </section>
+    <br>
+    <section>
+      <%= form_for @post do |f| %>
+        <%= f.text_area :content, placeholder: "請在此輸入文章內容，最長140個字！" %><br />
+        <%= f.submit "送出", class: "btn btn-primary" %>
+      <% end %>
+    </section>
+  </aside>
+  <div class="col-md-12">
+    <h1><%= current_user.name %>&nbsp;文章列表</h1>
+    <ul class="posts">
+      <% @posts.each do |post| %>
+        <li class="post">
+          <%= link_to gravatar_for(post.user), post.user, class: "gravatar" %>
+          <%= link_to post.user.name, post.user, class: "user" %>
+          <%= content_tag :span, post.content, class: "content" %>
+          <%= content_tag :span, "Posted #{time_ago_in_words(post.created_at)} ago", class: "timestamp" %>
+					<%= link_to "刪除", post, class: "btn btn-xs btn-danger", method: :delete, confirm: "確定要刪除此文章？" if current_user?(post.user) %>
+        </li>
+      <% end %>
+    </ul>
+<br>
+<%= paginate @posts %>
+<br>
+<%= link_to "返回", users_path, class: "btn btn-info" %>
+  </div>
+</div>

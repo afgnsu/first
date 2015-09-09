@@ -1,0 +1,13 @@
+<p>
+  <strong>姓名:</strong>
+  <%= gravatar_for @user %>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to '編輯', edit_user_path(@user) %> |
+<%= link_to '返回', users_path %>

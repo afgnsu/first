@@ -1,0 +1,11 @@
+zh-TW:
+  activerecord:
+    attributes:
+      user:
+        name: "姓名"
+        email: "電子郵件"
+        password: "密碼"
+        password_confirmation: "確認密碼"
+      will_paginate:
+        previous_label: "上一頁"
+        next_label: "下一頁"

@@ -1,0 +1,33 @@
+<h1>用戶列表</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>照片</th>
+      <th>姓名</th>
+      <th>電子信箱</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= gravatar_for user %></td>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+        <td><%= link_to '詳細', posts_path , :class => "btn btn-warning" %>
+        <%= link_to '編輯', edit_user_path(user), :class => "btn btn-success" %>
+        <%= link_to '刪除', user, method: :delete, data: { confirm: '確定要刪除此用戶？' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= paginate @users %>
+<br>
+
+<%= link_to '新增用戶', new_user_path, :class => "btn btn-primary" %>
